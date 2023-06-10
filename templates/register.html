@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <title>USER REGISTRATION</title>
+</head>
+<body>
+    {%with messages= get_flashed_messages(category_filter="success")%}
+    {%if messages%}
+    {%for message in messages%}
+
+       <div class="alert alert-warning alert-dismissible fade show" role="alert">
+           <span>{{messages}}</span>
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+           </button>
+       </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <nav  class="navbar bg-nav-index">
+        <a class="navbar-brand text-light" href="#">Grocery App</a>
+    </nav>
+
+    <section>
+        <div class="form-box-reg">
+            <div class="form-value">
+                <form action="/add_user" method="POST">
+                    <h2>User Registration</h2>
+                    <div class="inputbox">
+                        <ion-icon name="person"></ion-icon>
+                        <input type="text" required name="uname">
+                        <label for="">Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" required name="uemail">
+                        <label for="">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="Address"></ion-icon>
+                        <input type="text" required name="address">
+                        <label for="">Address</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="Postal-code"></ion-icon>
+                        <input type="text" required name="Postal code">
+                        <label for="">Postal code</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" required name="upassword">
+                        <label for="">Password</label>
+                    </div>
+
+                    <button>Submit</button>
+                    <div class="register">
+                        <p>Already have a account? <a href="/login">Login here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

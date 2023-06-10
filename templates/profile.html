@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+
+    <title></title>
+</head>
+<body class="">
+   <div class=" bg-nav-index d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal text-light">Grocery Mart</h5>
+   </div>
+   <h5 class="my-0 mr-md-auto font-weight-normal User_details">USER DETAILS</h5>
+   <div class="User_details">
+   <style>
+    table{
+        border-collapse:separate;
+        border:solid black 1px;
+        border-radius:6px;
+    }
+    tr:nth-child(even){
+          background-color: #f2f2f2;
+    }
+
+    th,td {
+           width: 150px;
+           text-align: center;
+           border: none;
+           padding: 5px;
+    }
+
+    td{
+      border:1px solid black;
+      border-radius:6px;
+    }
+
+    th {
+         text-align: left;
+         background-color: #708090;
+         color: white;
+    }
+    </style>
+    <table >
+       {% for row in data %}
+           <tr>
+               <th>user_id:</th>
+               <td>{{row[0]}}</td>
+           </tr>
+           <tr>
+               <th>name:</th>
+               <td>{{row[1]}}</td>
+           </tr>
+           <tr>
+               <th>email:</th>
+               <td>{{row[2]}}</td>
+           </tr>
+           <tr>
+               <th>address:</th>
+               <td>{{row[3]}}</td>
+           </tr>
+           <tr>
+               <th>postal_code:</th>
+               <td>{{row[4]}}</td>
+           </tr>
+       {% endfor %}
+    </table>
+
+    </div>
+    <a class="bh"  href="{{url_for('home')}}">BACK TO HOME</a>
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
