@@ -10,7 +10,7 @@ const openBtn = document.getElementById('open_cart_btn')
 const cart = document.getElementById('sidecart')
 const closeBtn = document.getElementById('close_btn')
 const backdrop = document.querySelector('.backdrop')
-const itemsEl = document.querySelector('.items')
+const itemsEl = document.querySelector('.items') 
 
 openBtn.addEventListener('click', openCart)
 closeBtn.addEventListener('click',closeCart)

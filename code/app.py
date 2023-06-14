@@ -44,9 +44,6 @@ def home():
 def cart():
     return render_template('cart.html')
 
-@app.route('/products')
-def products():
-    return render_template('products.html')
 
 
 @app.route('/login_validation', methods=['POST'])
@@ -70,11 +67,9 @@ def adminlogin_validation():
     cursor.execute("select * from admin where email='{}' and password='{}'".format(email, password))
     users = cursor.fetchall()
     if len(users) > 0:
-        flash('admin logged in successfully', 'success')
         cursor.execute("select * from products")
         data = cursor.fetchall()
-        print(data)
-        return render_template('stock.html', data=data)
+        return render_template('stock.html',data=data)
 
     else:
         return render_template('admin.html')
@@ -100,7 +95,7 @@ def logout():
     return render_template('login.html')
 
 
-@app.route('/addstock', methods=['POST', 'GET'])
+""""@app.route('/addstock', methods=['POST', 'GET'])
 def addstock():
     product_id = request.form.get("product_id")
     total_stock = request.form.get("total_stock")
@@ -110,7 +105,7 @@ def addstock():
     conn.commit()
     cursor.execute("select * from products ")
     data = cursor.fetchall()
-    return render_template('stock.html', data=data)
+    return render_template('stock.html', data=data)"""
 
 
 @app.route('/profile', methods=['GET', 'POST'])
@@ -120,6 +115,18 @@ def profile():
     data = cursor.fetchall()
     return render_template('profile.html', data=data)
 
+@app.route('/stock',methods=['POST','GET'])
+def stock():
+    cursor.execute("select * from products ")
+    data = cursor.fetchall()
+    return render_template('stock.html',data=data)
+
+@app.route('/orders',methods=['POST','GET'])
+def orders():
+    cursor.execute("select * from orders ")
+    order = cursor.fetchall()
+    print(order)
+    return render_template('orders.html',order=order)
 
 if __name__ == "__main__":
     app.run(debug=True)

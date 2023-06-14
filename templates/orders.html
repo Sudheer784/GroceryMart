@@ -8,16 +8,16 @@
 
     <title>stock management</title>
 </head>
-<body class="stockpage">
+<body class="orderpage">
    <div class=" bg-nav-index d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
       <h5 class="my-0 mr-md-auto font-weight-normal text-light">Grocery Mart</h5>
-       <h4 class="p-2 text-light" >Stock management</h4>
+       <h4 class="p-2 text-light" >Orders management</h4>
       <a class="btn btn-outline-primary"  href="{{url_for('index')}}">LOGOUT</a>
    </div>
 <div class="tablestock">
     <div class="stock-head" style="border: solid black 1px;">
-        <a  class="p-2">Products list</a>
-        <a href="{{url_for('orders')}}" class="p-2">Orders list</a>
+        <a href="{{url_for('stock')}}" class="p-2">Products list</a>
+        <a  class="p-2">Orders list</a>
     </div>
 <style>
  table{
@@ -45,42 +45,26 @@
 <table>
   <thead>
     <tr>
-        <th>product_id</th>
+        <th>order_id</th>
+        <th>user</th>
         <th>name_of_prod</th>
-        <th>prod_code</th>
-        <th>unit_of_meas</th>
-        <th>price_perunit</th>
-        <!--<th>stock</th>-->
+        <th>quantity</th>
+        <th>price</th>
     </tr>
     </thead>
     <tbody>
-     {% for row in data %}
+     {% for row in order %}
             <tr>
-                <td>{{row[0]}}</td>
                 <td>{{row[1]}}</td>
                 <td>{{row[2]}}</td>
                 <td>{{row[3]}}</td>
                 <td>{{row[4]}}</td>
-                <!--<td>{{row[5]}}</td>-->
+                <td>{{row[5]}}</td>
             </tr>
      {% endfor %}
     </tbody>
 </table>
-
-   <!--<div class="tablestock">
-       <form method="POST" action="/addstock">
-             <div class="inputbo">
-                 <input type="number" required name="product_id">
-                 <label for="">Add Units</label>
-             </div>
-             <div class="inputbo">
-                 <input type="number" required name="total_stock" >
-                 <label for="">product_id</label>
-             </div>
-             <button class="As">Add stock</button>
-       </form>
-   </div>
--->
+</div>
 
    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -90,4 +74,3 @@
 
 </body>
 </html>
-

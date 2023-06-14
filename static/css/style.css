@@ -898,3 +898,7 @@ body {
  #open_cart_btn{
       border:none;
  }
+
+ .stock-head{
+     display:flex;
+ }
